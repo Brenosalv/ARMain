@@ -1,9 +1,10 @@
-import './App.css';
-import * as THREE from './three.module'
-import { TubePainter } from './TubePainter';
-import { ARButton } from './ARButton';
+import * as THREE from '../../three.module'
+import { TubePainter } from '../../TubePainter';
+import { ARButton } from '../../ARButton';
 
-function App() {
+const Session = () => {
+  let sessionID = Math.floor(Math.random() * 1000000) + 100000;
+
   let container;
   let camera,
     scene,
@@ -13,6 +14,7 @@ function App() {
   const cursor = new THREE.Vector3();
   init();
   animate();
+
   function init() {
     container = document.createElement('div');
     document.body.appendChild(container);
@@ -39,11 +41,11 @@ function App() {
       .side = THREE.DoubleSide;
     scene.add(painter.mesh);
     //
-    function onSelectStart() {
+    function onSelectStart() { // Quando começa a desenhar a linha
       this.userData.isSelecting = true;
       this.userData.skipFrames = 2;
     }
-    function onSelectEnd() {
+    function onSelectEnd() { // Quando termina de desenhar a linha
       this.userData.isSelecting = false;
     }
     controller = renderer.xr.getController(0);
@@ -62,7 +64,7 @@ function App() {
   //
   function handleController(controller) {
     const userData = controller.userData;
-    cursor.set(0, 0, - 0.2).applyMatrix4(controller.matrixWorld);
+    cursor.set(0, 0, -0.2).applyMatrix4(controller.matrixWorld);
     if (userData.isSelecting === true) {
       if (userData.skipFrames >= 0) { // TODO(mrdoob) Revisit this
         userData.skipFrames--;
@@ -80,11 +82,12 @@ function App() {
     handleController(controller);
     renderer.render(scene, camera);
   }
-  return (
-    <div className="App">
 
+  return (
+    <div>
+      <p>{sessionID}</p>
     </div>
   );
 }
 
-export default App;
+export default Session;
