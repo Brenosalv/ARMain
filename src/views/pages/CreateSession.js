@@ -189,7 +189,6 @@ const CreateSession = () => {
     } else {
      // setCreateSession(true);
       setTimeout(() => history.push('/session'), 150);
-
     }
   };
 

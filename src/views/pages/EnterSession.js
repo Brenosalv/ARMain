@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100vw',
       maxWidth: '2140px',
       height: '100vh',
+      backgroundColor: 'rgba(206, 225, 253, 0.137)'
     },
     [theme.breakpoints.down(1200)]: {
       display: 'grid',
