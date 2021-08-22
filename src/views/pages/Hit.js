@@ -160,7 +160,7 @@ const Hit = () => {
     raycaster.setFromCamera(mouse, camera);
 
     // calculate objects intersecting the picking ray
-    const intersects = raycaster.intersectObjects(scene.children);
+    /* const intersects = raycaster.intersectObjects(scene.children); */
 
     /* for (let i = 0; i < intersects.length; i++) {
       intersects[i].object.material.color.set(0xff0000);

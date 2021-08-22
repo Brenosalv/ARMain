@@ -1,8 +1,7 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import EnterSession from './views/pages/EnterSession';
 import CreateSession from './views/pages/CreateSession';
 import Session from './views/pages/Session';
-import Hit from './views/pages/Hit';
 
 const Routes = () => (
   <BrowserRouter>
